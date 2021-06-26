@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "688279322896",
+    "project_id": "postpcex7-2021",
+    "storage_bucket": "postpcex7-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688279322896:android:519e8de2ac2deac2fbe595",
+        "android_client_info": {
+          "package_name": "postpc.amitkadosh.rachelsandwich"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688279322896-orkqrknlbq0af0lknd8dfdb1su9lmu00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSPAnf4HPI3t9xwMpUio4AS9XhL9aOsWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688279322896-orkqrknlbq0af0lknd8dfdb1su9lmu00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688279322896:android:1bbd16d3fe032b0efbe595",
+        "android_client_info": {
+          "package_name": "postpc.amitkadosh.rachelsandwichapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688279322896-orkqrknlbq0af0lknd8dfdb1su9lmu00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSPAnf4HPI3t9xwMpUio4AS9XhL9aOsWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688279322896-orkqrknlbq0af0lknd8dfdb1su9lmu00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
