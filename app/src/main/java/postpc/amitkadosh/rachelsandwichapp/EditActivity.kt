@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class EditActivity : AppCompatActivity() {
-    private lateinit var dataBase : DataBase
+    private lateinit var amitDataBase: DataBase
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
