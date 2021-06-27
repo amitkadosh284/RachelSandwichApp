@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.FirebaseApp
@@ -29,36 +30,44 @@ class DataBase : Application() {
         sp = this.getSharedPreferences("order_data", Context.MODE_PRIVATE)
         FirebaseApp.initializeApp(this)
         fireStore = FirebaseFirestore.getInstance()
+//        val editor = sp.edit()
+//        editor.remove("id")
+//        editor.clear()
+//        editor.apply()
         initializeFromSp()
-        Log.d("id of order", id.toString());
-        if (id.isNullOrEmpty()){
+        if (id!!.isNotEmpty()){
             initFirebaseObserver()
         }
     }
 
     private fun initializeFromSp() {
-        id = sp.getString("id", null).toString()
+        id = sp.getString("id", "").toString()
+        Log.d("id from sp", id.toString())
         name = sp.getString("name", "").toString()
-        id?.let{fireStore.collection("orders").document(id.toString()).get().addOnSuccessListener {result ->
-            _orderLivaData.value = result?.toObject(Order::class.java)
-        }}
+        if (id!!.isNotEmpty()){
+            fireStore.collection("orders").document(id.toString()).get().addOnSuccessListener {result ->
+                _orderLivaData.value = result?.toObject(Order::class.java)
+            }
+        }
     }
 
     public fun uploadOrUpdate(order: Order){
         if (id.isNullOrEmpty()){
             id = order.id
+            Log.d("upload", id.toString())
             initFirebaseObserver()
         }
         if (name.isNullOrEmpty()){
             name = order.name
         }
         fireStore.collection("orders").document(order.id).set(order).addOnSuccessListener {
-            val editor = sp.edit()
-            editor.putString("id", id)
-            editor.putString("name", order.name)
-            editor.apply()
-            _orderLivaData.setValue(order)
+            Toast.makeText(this, "your order was update", Toast.LENGTH_SHORT).show()
         }
+        _orderLivaData.value = order
+        val editor = sp.edit()
+        editor.putString("id", id)
+        editor.putString("name", order.name)
+        editor.apply()
     }
 
     private fun initFirebaseObserver() {
@@ -76,15 +85,14 @@ class DataBase : Application() {
 
 
     public fun deleteOrder(){
-        id?.let {
-            fireStore.collection("orders").document(it).delete().addOnSuccessListener {
-                //toast
-                val editor = sp.edit()
-                editor.remove(id)
-                editor.apply()
-                id = null
-                _orderLivaData.setValue(null)
-            }
+        if(id != null){
+            Toast.makeText(this, "Your order have been deleted", Toast.LENGTH_SHORT).show()
+            val editor = sp.edit()
+            editor.remove("id")
+            editor.clear()
+            editor.apply()
+            id = null
+            _orderLivaData.value = null
         }
     }
 }

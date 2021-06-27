@@ -16,15 +16,17 @@
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/rachel" />
+        android:src="@drawable/rachel"
+        tools:srcCompat="@drawable/rachel"
+        android:contentDescription="@string/logo" />
 
     <TextView
         android:id="@+id/nameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:fontFamily="cursive"
-        android:text="Hii "
+        android:fontFamily="casual"
+        android:text="@string/welcome_greeting"
         android:textColor="#2d004d"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -36,8 +38,8 @@
         android:id="@+id/explanation"
         android:layout_width="329dp"
         android:layout_height="86dp"
-        android:fontFamily="cursive"
-        android:text="We making your order. It will be ready very soon."
+        android:fontFamily="casual"
+        android:text="@string/in_progress_explain"
         android:textAlignment="center"
         android:textColor="#2d004d"
         android:textSize="24sp"
@@ -61,15 +63,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rachelLogo" />
 
-    <ImageView
-        android:id="@+id/gifInProgress"
-        android:layout_width="311dp"
-        android:layout_height="323dp"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/inProgressGif"
+        android:layout_width="414dp"
+        android:layout_height="331dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/explanation"
-        app:srcCompat="@drawable/subwaygif"
+        android:src="@drawable/progressgif"
         tools:srcCompat="@drawable/progressgif" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

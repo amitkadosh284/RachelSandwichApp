@@ -13,20 +13,21 @@
         android:layout_height="144dp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/rachel" />
+        android:src="@drawable/rachel"
+        tools:srcCompat="@drawable/rachel"
+        android:contentDescription="@string/logo" />
 
     <TextView
         android:id="@+id/nameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         android:text="@string/welcome_greeting"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,13 +35,13 @@
 
     <TextView
         android:id="@+id/explanation"
-        android:layout_width="329dp"
-        android:layout_height="86dp"
-        android:fontFamily="cursive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/order_ready"
         android:textAlignment="center"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,30 +62,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rachelLogo" />
 
-    <ImageView
-        android:id="@+id/gifInProgress"
-        android:layout_width="279dp"
-        android:layout_height="275dp"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/doneGif"
+        android:layout_width="414dp"
+        android:layout_height="331dp"
+        android:src="@drawable/donegif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/explanation"
-        app:layout_constraintVertical_bias="0.206"
-        app:srcCompat="@drawable/subwaygif"
-        tools:srcCompat="@drawable/donegif"
-        android:contentDescription="@string/content_description_fot_it" />
+        app:layout_constraintVertical_bias="0.126"
+        tools:srcCompat="@drawable/donegif" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/gotIt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:fabSize="auto"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gifInProgress"
-        app:layout_constraintTop_toBottomOf="@+id/gifInProgress"
-        app:srcCompat="@android:drawable/checkbox_on_background"
-        tools:srcCompat="@drawable/gotit" />
+        app:layout_constraintStart_toEndOf="@+id/doneGif"
+        app:layout_constraintTop_toBottomOf="@+id/doneGif"
+        app:srcCompat="@drawable/gotit"
+        tools:srcCompat="@drawable/gotit"
+        android:contentDescription="@string/gotit_buttom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

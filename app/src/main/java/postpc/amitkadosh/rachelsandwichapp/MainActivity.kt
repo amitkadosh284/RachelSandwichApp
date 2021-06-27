@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, InProgressActivity::class.java)
                 startActivity(intent)
             }
-            Status.DONE -> {
+            Status.READY -> {
                 val intent = Intent(this, DoneActivity::class.java)
                 startActivity(intent)
             }

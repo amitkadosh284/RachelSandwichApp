@@ -18,7 +18,7 @@ class DoneActivity : AppCompatActivity() {
         val gotItButton : FloatingActionButton = findViewById(R.id.gotIt)
         val hello: TextView = findViewById(R.id.nameField)
 
-        val helloText: String = "Hii" + dataBase.name
+        val helloText: String = "Hii " + dataBase.name
         hello.text = helloText
 
         gotItButton.setOnClickListener{

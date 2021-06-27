@@ -16,15 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/rachel"
-        tools:srcCompat="@drawable/rachel" />
+        tools:srcCompat="@drawable/rachel"
+        android:contentDescription="@string/logo"/>
 
     <TextView
         android:id="@+id/nameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:fontFamily="cursive"
-        android:text="Hii "
+        android:fontFamily="casual"
+        android:text="@string/welcome_greeting"
         android:textColor="#2d004d"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -36,13 +37,14 @@
         android:id="@+id/explanation"
         android:layout_width="254dp"
         android:layout_height="87dp"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         android:text="@string/edit_explanation"
         android:textAlignment="center"
         android:textColor="#2d004d"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameField" />
 
@@ -67,10 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         android:text="@string/tahini"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hummus" />
@@ -81,10 +83,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         android:text="@string/hummus"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pickles" />
@@ -93,34 +95,24 @@
         android:id="@+id/pickles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="30dp"
         android:text="@string/pickles"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/comments"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/explanation" />
 
-    <SeekBar
-        android:id="@+id/pickelsBar"
-        style="@android:style/Widget.Material.Light.SeekBar"
-        android:layout_width="108dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="12dp"
-        android:progressTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/hummus"
-        app:layout_constraintStart_toEndOf="@+id/pickles"
-        app:layout_constraintTop_toTopOf="@+id/pickles" />
-
     <EditText
         android:id="@+id/comments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:text=""
+        android:fontFamily="casual"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/commentsField"
         app:layout_constraintTop_toBottomOf="@+id/tahini" />
@@ -131,45 +123,82 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         android:text="@string/comments"
         android:textColor="#2d004d"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tahini" />
+
+
+
+    <TextView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="casual"
+        android:text="@string/zero"
+        android:textColor="#2d004d"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/minus"
+        app:layout_constraintTop_toBottomOf="@+id/explanation" />
+
+    <TextView
+        android:id="@+id/minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="casual"
+        android:text="@string/minus"
+        android:textColor="#2d004d"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/pickles"
+        app:layout_constraintTop_toBottomOf="@+id/explanation" />
+
+    <TextView
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="casual"
+        android:text="@string/plus"
+        android:textColor="#2d004d"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/progress"
+        app:layout_constraintTop_toBottomOf="@+id/explanation" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/explanation"
         app:layout_constraintTop_toBottomOf="@+id/comments"
-        app:srcCompat="@android:drawable/ic_delete"
+        app:srcCompat="@android:drawable/ic_menu_delete"
         tools:srcCompat="@android:drawable/ic_menu_delete" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:layout_marginStart="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/explanation"
-        app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comments"
-        app:layout_constraintVertical_bias="0.506"
-        app:srcCompat="@android:drawable/ic_menu_save"
+        app:srcCompat="@android:drawable/ic_menu_send"
         tools:srcCompat="@android:drawable/ic_menu_send" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

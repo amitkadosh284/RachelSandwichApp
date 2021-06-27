@@ -10,20 +10,25 @@
         android:supportsRtl="false"
         android:name=".DataBase"
         android:theme="@style/Theme.RachelSandwichApp">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewOrderActivity">
+        <activity android:name=".NewOrderActivity"
+            android:noHistory="true">
         </activity>
-        <activity android:name=".EditActivity">
+        <activity android:name=".EditActivity"
+            android:noHistory="true">
         </activity>
-        <activity android:name=".InProgressActivity">
+        <activity android:name=".InProgressActivity"
+            android:noHistory="true">
         </activity>
-        <activity android:name=".DoneActivity">
+        <activity android:name=".DoneActivity"
+            android:noHistory="true">
         </activity>
 
     </application>
