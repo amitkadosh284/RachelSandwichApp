@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * this function check the order status and open the activity that related to this status
+     */
     private fun startActivityByStatus(order: Order) {
         when (order.status) {
             Status.WAITING -> {

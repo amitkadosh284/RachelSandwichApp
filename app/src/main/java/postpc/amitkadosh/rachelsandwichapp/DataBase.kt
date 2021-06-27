@@ -13,7 +13,9 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 
-
+/**
+ * this class in charge all the data base and the connection to firebase
+ */
 class DataBase : Application() {
 
     lateinit var sp: SharedPreferences
@@ -30,19 +32,19 @@ class DataBase : Application() {
         sp = this.getSharedPreferences("order_data", Context.MODE_PRIVATE)
         FirebaseApp.initializeApp(this)
         fireStore = FirebaseFirestore.getInstance()
-//        val editor = sp.edit()
-//        editor.remove("id")
-//        editor.clear()
-//        editor.apply()
+
         initializeFromSp()
         if (id!!.isNotEmpty()){
             initFirebaseObserver()
         }
     }
 
+    /**
+     * this function takes the id of order from the sp and create listener to changes from firebase
+     * on this order if order exists
+     */
     private fun initializeFromSp() {
         id = sp.getString("id", "").toString()
-        Log.d("id from sp", id.toString())
         name = sp.getString("name", "").toString()
         if (id!!.isNotEmpty()){
             fireStore.collection("orders").document(id.toString()).get().addOnSuccessListener {result ->
@@ -51,10 +53,13 @@ class DataBase : Application() {
         }
     }
 
+    /**
+     * this function upload or update order to the firebase and set the values in the live data and
+     * the share preference
+     */
     public fun uploadOrUpdate(order: Order){
         if (id.isNullOrEmpty()){
             id = order.id
-            Log.d("upload", id.toString())
             initFirebaseObserver()
         }
         if (name.isNullOrEmpty()){
@@ -70,9 +75,11 @@ class DataBase : Application() {
         editor.apply()
     }
 
+    /**
+     * create fire base observer on the order
+     */
     private fun initFirebaseObserver() {
         id?.let {
-            Log.d("initialize", id.toString())
             if(it.isNotEmpty()){
                 fireStore.collection("orders").document(it).addSnapshotListener { result: DocumentSnapshot?, e: FirebaseException? ->
                     if (result != null) {
@@ -84,6 +91,9 @@ class DataBase : Application() {
     }
 
 
+    /**
+     * this function delete order from the database ans set the values in live data an sp
+     */
     public fun deleteOrder(){
         if(id != null){
             Toast.makeText(this, "Your order have been deleted", Toast.LENGTH_SHORT).show()

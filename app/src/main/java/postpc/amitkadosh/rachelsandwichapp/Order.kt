@@ -6,11 +6,13 @@ enum class Status {
     WAITING, INPROGRESS, READY, DONE
 }
 
-
+/**
+ * data class represent an order
+ */
 data class Order(
     var id: String = UUID.randomUUID().toString(),
     var name: String = "",
-    var pickles: String = "0",
+    var pickles: Int = 0,
     var hummus: Boolean = false,
     var tahini: Boolean = false,
     var comment: String = "",

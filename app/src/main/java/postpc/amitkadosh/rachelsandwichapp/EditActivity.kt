@@ -43,7 +43,7 @@ class EditActivity : AppCompatActivity() {
 
         saveButton.setOnClickListener{
             if (order != null) {
-                order.pickles = progressView.text.toString()
+                order.pickles = progressView.text.toString().toInt()
                 order.tahini = tahini.isChecked
                 order.hummus = hummus.isChecked
                 order.comment = commentContent.text.toString()
@@ -55,7 +55,7 @@ class EditActivity : AppCompatActivity() {
         plus.setOnClickListener {
             if (order != null){
                 try {
-                    var num_pickels : Int = order.pickles.toInt()
+                    var num_pickels : Int = order.pickles
                     num_pickels++
                     plus.isEnabled = num_pickels < 10
                     if (num_pickels >= 10){
@@ -64,8 +64,8 @@ class EditActivity : AppCompatActivity() {
                     else{
                         minus.visibility = View.VISIBLE
                     }
-                    order.pickles = num_pickels.toString()
-                    progressView.text = order.pickles
+                    order.pickles = num_pickels
+                    progressView.text = order.pickles.toString()
                 } catch (e : Exception){
                     Toast.makeText(this, "Invalid pickels number", Toast.LENGTH_SHORT).show()
                 }
@@ -84,8 +84,8 @@ class EditActivity : AppCompatActivity() {
                     else{
                         minus.visibility = View.VISIBLE
                     }
-                    order.pickles = num_pickels.toString()
-                    progressView.text = order.pickles
+                    order.pickles = num_pickels
+                    progressView.text = order.pickles.toString()
                 } catch (e : Exception){
                     Toast.makeText(this, "Invalid pickels number", Toast.LENGTH_SHORT).show()
                 }
@@ -106,6 +106,9 @@ class EditActivity : AppCompatActivity() {
             })
         }
 
+    /**
+     * set the views after change the order
+     */
     private fun setViews(
         order: Order?,
         hello: TextView,
@@ -122,7 +125,7 @@ class EditActivity : AppCompatActivity() {
         hummus.isChecked = order?.hummus ?: false
         val comment = order?.comment
         commentContent.setText(comment)
-        progressView.text = order?.pickles ?: "0"
+        progressView.text = order?.pickles.toString()
 
         try {
             val num_pickels: Int = progressView.text.toString().toInt()

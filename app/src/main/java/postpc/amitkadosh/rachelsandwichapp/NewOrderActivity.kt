@@ -30,12 +30,15 @@ class NewOrderActivity : AppCompatActivity() {
         val commentContent : EditText = findViewById(R.id.comments)
         val saveButton : FloatingActionButton = findViewById(R.id.sendOrder)
 
-
+        //set view
         minus.visibility = View.GONE
+
+        //set the name if he already order
         if (dataBase.name != ""){
             nameField.text = dataBase.name
         }
 
+        //listener to the save button
         saveButton.setOnClickListener{
             updateOrder(progressView, tahini, hummus, commentContent, nameField)
             val intent = Intent(this, EditActivity::class.java)
@@ -77,6 +80,9 @@ class NewOrderActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * update all the fields of the current order
+     */
     private fun updateOrder(
         pickelProgress: TextView,
         tahini: SwitchCompat,
@@ -85,7 +91,7 @@ class NewOrderActivity : AppCompatActivity() {
         nameField: TextView
     ) {
         val order = Order()
-        order.pickles = pickelProgress.text.toString()
+        order.pickles = pickelProgress.text.toString().toInt()
         order.tahini = tahini.isChecked
         order.hummus = hummus.isChecked
         order.comment = commentContent.text.toString()
